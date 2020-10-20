@@ -1,3 +1,3 @@
 <?php
-echo 'asd';
->?
+$text = 'asddqw';
+echo substr($text, -3);
