@@ -21,13 +21,6 @@ function isEven($num){
         return false;
     }
 }
-$arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-$newArr = [];
-foreach($arr as $elem){
-    if(isEven($elem)){
-        $newArr[] = $elem;
-    }
-}
 function getDivisors($num){
     $arrDivisors = [];
     for($i=1; $i<=$num; $i++){
@@ -48,4 +41,50 @@ function getCommonDivisors($num1, $num2){
     }
     return $arr;
 }
-var_dump(getCommonDivisors(10, 20));
+function translate($str){
+    $ua = ['a'=>'а', 'b'=>'б', 'v'=>'в'];
+    $arr = str_split($str, 1);
+    $newStr = '';
+    foreach($ua as $key=>$elem){
+        foreach($arr as $elem1){
+            if($elem1 === $key){
+                $newStr .= $elem;
+            }
+        }
+    }
+    return $newStr;
+}
+function happyTicket(){
+    $arr = [];
+    for($i=1000; $i<=999999; $i++){
+        $arr = str_split($i, 1);
+        $sum1 = array_sum(array_splice($arr, -3, 3));
+        $sum2 = array_sum(array_splice($arr, -3, 3));
+        if($sum1 == $sum2){
+            echo $i.'<br>';
+        }
+    }
+}
+function cut($str, $num = 10){
+    $newStr = substr($str, 0, $num);
+    return $newStr;
+}
+function last($arr){
+    echo array_shift($arr).'<br>';
+    if(!empty($arr)){
+        last($arr);
+    }
+}
+function sumSimple($num){
+    $sum = array_sum(str_split($num, 1));
+    echo $sum.'<br>';
+    if($sum > 10){
+        sumSimple($sum);
+    }
+}
+?>
+
+<?php
+function check($name, $value){
+    return '<input ty'
+}
