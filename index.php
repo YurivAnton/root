@@ -85,6 +85,29 @@ function sumSimple($num){
 ?>
 
 <?php
-function check($name, $value){
-    return '<input ty'
+
+class User{
+	public $name;
+	public $age;
+
+	public function setAge($age){
+		if($this->isAgeCorrect($age)){
+			return $this->age = $age;
+		}
+	}
+	public function addAge($year){
+		$newAge = $this->age + $year;
+		if($this->isAgeCorrect($newAge)){
+			return $this->age = $newAge;
+		}
+	}
+	private function isAgeCorrect($age){
+		return $age>=18 and $age<=60;
+	}
 }
+
+$user = new User;
+$user->setAge(20);
+echo $user->age;
+$user->addAge(50);
+echo $user->age;
